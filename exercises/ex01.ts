@@ -9,9 +9,34 @@
 // Eg: printInfoOrCalculate("TS",5,"+") //Expected result: TS
 // Eg: printInfoOrCalculate("TS") //Expected result: TS
 
-const printInfoOrCalculate = () => {
-  // Code here
-};
+type Operator = "+" | "-" | "/" | "*"
+
+const printInfoOrCalculate = (
+  value: string | number,
+  second?: number,
+  operation?: Operator
+): string | number => {
+  if (typeof value === "string") {
+    return value
+  }
+
+  if (typeof second !== "number" || typeof operation !== "string") {
+    throw new Error("Invalid input")
+  }
+
+  switch (operation) {
+    case "+":
+      return value + second
+    case "-":
+      return value - second
+    case "*":
+      return value * second
+    case "/":
+      return value / second
+    default:
+      throw new Error("Invalid input")
+  }
+}
 
 // Tests
 console.log(printInfoOrCalculate(3, 5, "+")); // Expected result: 8
