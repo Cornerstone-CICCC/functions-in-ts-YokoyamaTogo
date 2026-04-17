@@ -1,9 +1,9 @@
 // Write a function called areAllCharactersUnique that takes in a string and
 // returns true or false depending on whether all characters in the string are unique (i.e., no character is repeated).
 
-const areAllCharactersUnique = () => {
-  // Code here
-};
+const areAllCharactersUnique = (value: string): boolean => {
+  return new Set(value).size === value.length
+}
 
 export default areAllCharactersUnique;
 
