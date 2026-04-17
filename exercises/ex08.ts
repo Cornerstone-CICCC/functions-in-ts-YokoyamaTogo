@@ -2,9 +2,23 @@
 // Additionally, you are given a tax rate as a percentage.
 // Write a function called calculateTotalSalesWithTax that takes in an array of product objects, along with the tax rate, and returns the total sales amount including tax.
 
-const calculateTotalSalesWithTax = () => {
-  // Code here
-};
+interface Product {
+  name: string
+  price: string
+  quantitySold: number
+}
+
+const calculateTotalSalesWithTax = (products: Product[], taxRate: number): string => {
+  const totalSales = products.reduce((total, product) => {
+    const price = parseFloat(product.price.replace("CAD ", ""))
+    return total + (price * product.quantitySold)
+  }, 0)
+
+  const taxAmount = totalSales * (taxRate / 100)
+  const totalWithTax = totalSales + taxAmount
+
+  return `CAD ${totalWithTax.toFixed(2)}`
+}
 
 export default calculateTotalSalesWithTax;
 
