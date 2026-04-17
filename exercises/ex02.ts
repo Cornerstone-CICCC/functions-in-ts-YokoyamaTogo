@@ -1,9 +1,11 @@
 // Create an anonymous function that takes a string parameter and print the characters of the string in reverse order.
 // Return the string.
 
-const reverseAndPrint = () => {
-  // Code here
-};
+const reverseAndPrint = (value: string): string => {
+  const reversed = value.split("").reverse().join("")
+  console.log(reversed)
+  return reversed
+}
 
 // Tests:
 reverseAndPrint("hello"); // Expected output: "olleh"
